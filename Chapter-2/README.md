@@ -238,6 +238,24 @@ while i < 100 {
 }
 ```
 
+## 옵셔널 (Optional)
+
+- `!`, `?`
+- `ImplicitlyUnwrappedOptional`
+- 옵셔널 언래핑 (Optional Unwrapping)
+- 옵셔널 바인딩 (Optional Binding)
+- `if let`
+- `guard let`
+- `optional?.something`
+- `optional?.doSomething()`
+
+## 함수와 클로저
+
+- 스코프
+- `defer` `guard`
+
+## 클래스와 구조체
+
 ### 튜플 (Tuple)
 
 튜플<sup>Tuple</sup>은 어떠한 값들의 묶음입니다. 배열과 비슷하다고 볼 수 있는데요. 배열과는 다르게 길이가 고정되어있답니다. 값에 접근할 때에도 `[]` 대신 `.`을 사용해요.
@@ -311,3 +329,9 @@ coffeeInfoForName("에스프레소")?.price // nil
 let (_, lattePrice) = coffeeInfoForName("라떼")!
 lattePrice // 5600
 ```
+
+## Enum
+
+## 프로토콜
+
+## 익스텐션 (Extension)
