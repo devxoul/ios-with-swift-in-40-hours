@@ -22,7 +22,7 @@ name = "전수열"
 하지만, 아래와 같이 태어난 해를 바꾸려 한다면 컴파일 에러가 발생합니다.
 
 ```swift
-birthyear = 2000
+birthyear = 2000 // 컴파일 에러!
 ```
 
 ![cannot-assign-to-value-let](../images/Chapter-2/cannot-assign-to-value-let.png)
@@ -66,7 +66,7 @@ String(birthyear) + "년에 태어난 " + name + "아 안녕!" // 1995년에 태
 Swift에서는 타입을 굉장히 엄격하게 다루기 때문에, 다른 자료형끼리는 기본적인 연산조차 되지 않습니다. 아래와 같이 `Int` 타입인 `birthyear`와 `Float` 타입인 `height`을 더하려고 하면 컴파일 에러가 발생합니다.
 
 ```swift
-birthyear + height
+birthyear + height // 컴파일 에러!
 ```
 
 ![int-plus-float-error.png](../images/Chapter-2/int-plus-float-error.png)
@@ -158,7 +158,7 @@ student // 고등학생
 
 ```swift
 var number = 0
-if !number {
+if !number { // 컴파일 에러!
     // ...
 }
 ```
@@ -252,7 +252,7 @@ Swift가 가지고 있는 가장 큰 특징 중 하나가 바로 옵셔널<sup>O
 
 ```swift
 var name: String = "전수열"
-name = nil
+name = nil // 컴파일 에러!
 ```
 
 ![nil-cannot-be-assigned](../images/Chapter-2/nil-cannot-be-assigned.png)
@@ -273,7 +273,7 @@ print(email) // Optional("devxoul@gmail.com")
 
 ```swift
 let optionalEmail: String? = "devxoul@gmail.com"
-let requiredEmail: String = optionalEmail
+let requiredEmail: String = optionalEmail // 컴파일 에러!
 ```
 
 ![optional-unwrapped](../images/Chapter-2/optional-unwrapped.png)
