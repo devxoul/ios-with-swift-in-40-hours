@@ -2,6 +2,8 @@
 
 * [소개](README.md)
 * [iOS 개발환경 세팅하기](Chapter-1/README.md)
+    * [Playground 사용해보기](Chapter-1/playground.md)
+    * [첫 iOS 프로젝트 시작해보기](Chapter-1/ios-project.md)
 * [Swift 둘러보기 (1)](Chapter-2/README.md)
     * [Swift의 역사](Chapter-2/history.md)
     * [변수와 상수](Chapter-2/variables-and-constants.md)
