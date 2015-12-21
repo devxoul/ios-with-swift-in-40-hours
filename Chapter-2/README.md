@@ -900,6 +900,21 @@ hex.decimal // 11
 
 위 코드에서 `hexString`은 실제 값을 가지고 있지는 않지만, `decimal`로부터 값을 받아와 16진수 문자열로 만들어서 반환합니다. `decimal`은 Stored Property, `hexString`은 Computed Property입니다.
 
+참고로, `get`만 정의할 경우에는 `get` 키워드를 생략할 수 있습니다. 이런 속성을 *읽기 전용<sup>Read Only</sup>*이라고 합니다.
+
+```swift
+class Hex {
+    // ...
+
+    var hexCode: String? {
+        if let hex = self.hexString {
+            return "0x" + hex
+        }
+        return nil
+    }
+}
+```
+
 `get`, `set`과 비슷한 `willSet`, `didSet`을 이용하면 속성에 값이 지정되기 직전과 직후에 원하는 코드를 실행할 수 있습니다.
 
 ```swift
