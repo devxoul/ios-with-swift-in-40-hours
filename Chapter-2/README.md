@@ -1189,9 +1189,9 @@ default:
 
 재밌죠? 😏
 
-## 프로토콜
+## 프로토콜(Protocol)
 
-프로토콜은 인터페이스입니다. 최소한으로 가져야 할 속성이나 메서드를 정의합니다. 구현은 하지 않습니다. 진짜로 정의만 합니다.
+*프로토콜<sup>Protocol</sup>*은 인터페이스입니다. 최소한으로 가져야 할 속성이나 메서드를 정의합니다. 구현은 하지 않습니다. 진짜로 정의만 합니다.
 
 ```swift
 /// 전송가능한 인터페이스를 정의합니다.
@@ -1307,7 +1307,38 @@ print(anyNumber is String) // false
 print(anyString is String) // true
 ```
 
-### 변환가능함 (Convertible)
+### Swift 주요 프로토콜
+
+Swift에는 기본적으로 제공하는 기초적인 프로토콜들이 있습니다. 알아두면 개발할 때 굉장히 유용하게 사용할 수 있습니다.
+
+#### CustomStringConvertible
+
+자기 자신을 표현하는 문자열을 정의합니다. `print()`, `String()` 또는 `"\()"`에서 사용될 때의 값입니다. `CustomStringConvertible`의 정의는 아래와 같이 생겼습니다.
+
+```swift
+public protocol CustomStringConvertible {
+    /// A textual representation of `self`.
+    public var description: String { get }
+}
+```
+
+실제로 적용해볼까요?
+
+```swift
+struct Dog: CustomStringConvertible {
+    var name: String
+    var description: String {
+        return "🐶 \(self.name)"
+    }
+}
+
+let dog = Dog(name: "찡코")
+print(dog) // 🐶 찡코
+```
+
+> **응용하기**: `CustomDebugStringConvertible`을 적용해봅시다.
+
+#### LiteralConvertible
 
 우리는 지금까지 `10`은 `Int`, `"Hi"`는 `String`이라고 '당연하게' 인지하고 있었습니다. 하지만, 엄밀히 하자면 `10`은 원래 `Int(10)`으로 선언되어야 하고, `"Hi"`는 `String("Hi")`로 선언되어야 합니다. `Int`와 `String` 모두 생성자를 가지는 구조체이기 때문이죠.
 
