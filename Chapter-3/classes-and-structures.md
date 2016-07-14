@@ -12,7 +12,7 @@ class Dog {
     }
 }
 
-class Coffee {
+struct Coffee {
     var name: String?
     var size: String?
 
