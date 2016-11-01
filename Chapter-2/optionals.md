@@ -213,3 +213,5 @@ print(email) // 런타임 에러!
 > **fatal error: unexpectedly found nil while unwrapping an Optional value**
 
 가급적이면 일반적인 옵셔널을 사용해서 정의하고, 옵셔널 바인딩 또는 옵셔널 체이닝을 통해 값에 접근하는 것이 더 바람직합니다.
+
+> **Tip**: Swift 2 버전에서는 `"\(email)"`과 같이 문자열을 포맷팅하면 `devxoul@gmail.com`이 나왔으나, Swift 3 버전부터는 `ImplicitlyUnwrappedOptional`을 문자열 포맷팅 할 경우 `Optional("devxoul@gmail.com")`로 포맷팅되니 주의해서 사용해야 합니다. Swift 3 버전부터 `ImplicitlyUnwrappedOptional`을 일반 `Optional`과 거의 동일하게 취급했기 때문인데, 자세한 이유는 [SE-0054](https://github.com/apple/swift-evolution/blob/master/proposals/0054-abolish-iuo.md) 문서에 잘 나와있습니다.
