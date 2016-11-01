@@ -4,50 +4,50 @@
 
 ```swift
 enum Month: Int {
-    case January = 1
-    case February
-    case March
-    case April
-    case May
-    case June
-    case July
-    case August
-    case September
-    case October
-    case November
-    case December
+  case january = 1
+  case february
+  case march
+  case april
+  case may
+  case june
+  case july
+  case august
+  case september
+  case october
+  case november
+  case december
 
-    func simpleDescription() -> String {
-        switch self {
-        case .January:
-            return "1월"
-        case .February:
-            return "2월"
-        case .March:
-            return "3월"
-        case .April:
-            return "4월"
-        case .May:
-            return "5월"
-        case .June:
-            return "6월"
-        case .July:
-            return "7월"
-        case .August:
-            return "8월"
-        case .September:
-            return "9월"
-        case .October:
-            return "10월"
-        case .November:
-            return "11월"
-        case .December:
-            return "12월"
-        }
+  func simpleDescription() -> String {
+    switch self {
+    case .january:
+      return "1월"
+    case .february:
+      return "2월"
+    case .march:
+      return "3월"
+    case .april:
+      return "4월"
+    case .may:
+      return "5월"
+    case .june:
+      return "6월"
+    case .july:
+      return "7월"
+    case .august:
+      return "8월"
+    case .september:
+      return "9월"
+    case .october:
+      return "10월"
+    case .november:
+      return "11월"
+    case .december:
+      return "12월"
     }
+  }
 }
 
-let december = Month.December
+let december = Month.december
 print(december.simpleDescription()) // 12월
 print(december.rawValue)            // 12
 ```
@@ -56,7 +56,7 @@ print(december.rawValue)            // 12
 
 ```swift
 let october = Month(rawValue: 10)
-print(october) // Optional(Month.October)
+print(october) // Optional(Month.october)
 ```
 
 `Month(rawValue:)`의 반환값이 옵셔널인 이유는, Enum에서 정의되지 않은 원시값을 가지고 생성할 경우 `nil`을 반환하기 때문입니다.
@@ -69,8 +69,8 @@ Month(rawValue: 13) // nil
 
 ```swift
 enum IssueState: String {
-    case Open = "open"
-    case Closed = "closed"
+  case open = "open"
+  case closed = "closed"
 }
 ```
 
@@ -80,78 +80,78 @@ Enum은 원시값을 가지지 않을 수도 있습니다. 원시값을 가져�
 
 ```swift
 enum Spoon {
-    case Dirt
-    case Bronze
-    case Silver
-    case Gold
+  case dirt
+  case bronze
+  case silver
+  case gold
 
-    func simpleDescription() -> String {
-        switch self {
-        case .Dirt:
-            return "흙수저"
-        case .Bronze:
-            return "동수저"
-        case .Silver:
-            return "은수저"
-        case .Gold:
-            return "금수저"
-        }
+  func simpleDescription() -> String {
+    switch self {
+    case .dirt:
+      return "흙수저"
+    case .bronze:
+      return "동수저"
+    case .silver:
+      return "은수저"
+    case .gold:
+      return "금수저"
     }
+  }
 }
 ```
 
 Enum을 예측할 수 있다면 Enum의 이름을 생략할 수 있습니다. 코드가 굉장히 간결해지겠죠?
 
 ```swift
-let spoon: Spoon = .Gold // 변수에 타입 어노테이션이 있기 때문에 생략 가능
+let spoon: Spoon = .gold // 변수에 타입 어노테이션이 있기 때문에 생략 가능
 
-func doSomething(spoon: Spoon) {
-    // ...
+func doSomething(with spoon: Spoon) {
+  // ...
 }
-averageIncomeForSpoon(.Silver) // 함수 정의에 타입 어노테이션이 있기 때문에 생략 가능
+doSomething(with: .silver) // 함수 정의에 타입 어노테이션이 있기 때문에 생략 가능
 ```
 
-### 인자를 가지는 Enum
+### 연관 값 (Associated Values) 을 가지는 Enum
 
-Enum은 인자<sup>Argument</sup>을 가질 수 있습니다. 뚱딴지같은 소리같죠? 그런데 진짜로 인자를 가질 수 있습니다. 아래 예시는 어떤 API에 대한 에러를 정의한 것인데요. `InvalidParameter` 케이스는 필드 이름과 메시지를 가지도록 정의되었습니다.
+Enum은 연관 값<sup>Associated Values</sup>을 가질 수 있습니다. 아래 예시는 어떤 API에 대한 에러를 정의한 것인데요. `invalidParameter` 케이스는 필드 이름과 메시지를 가지도록 정의되었습니다.
 
 ```swift
-enum Error {
-    case InvalidParameter(String, String)
-    case Timeout
+enum NetworkError {
+  case invalidParameter(String, String)
+  case timeout
 }
 
-let error = Error.InvalidParameter("email", "이메일 형식이 올바르지 않습니다.")
+let error: NetworkError = .invalidParameter("email", "이메일 형식이 올바르지 않습니다.")
 ```
 
 이 값을 꺼내올 수 있는 방법으로는 `if-case` 또는 `switch`를 활용하는 방법이 있습니다.
 
 ```swift
-if case .InvalidParameter(let field, let message) = error {
-    print(field) // email
-    print(message) // 이메일 형식이 올바르지 않습니다.
+if case .invalidParameter(let field, let message) = error {
+  print(field) // email
+  print(message) // 이메일 형식이 올바르지 않습니다.
 }
 
 switch error {
-case .InvalidParameter(let field, let message):
-    print(field) // email
-    print(message) // 이메일 형식이 올바르지 않습니다.
+case .invalidParameter(let field, let message):
+  print(field) // email
+  print(message) // 이메일 형식이 올바르지 않습니다.
 
 default:
-    break
+  break
 }
 ```
 
-> **응용하기**: `Error`에 `message`라는 읽기 전용 속성을 추가하고, 에러에 대한 명확한 메시지를 반환하도록 만들어봅시다. 더 나아가서, 있을법한 다른 에러에 대한 경우도 추가해봅시다.
+> **응용하기**: `NetworkError`에 `message`라는 읽기 전용 속성을 추가하고, 에러에 대한 명확한 메시지를 반환하도록 만들어봅시다. 더 나아가서, 있을법한 다른 에러에 대한 경우도 추가해봅시다.
 
-### 충격적 사실!
+### 충격적 사실! (대박)
 
 사실, 옵셔널은 Enum입니다. 실제로 이렇게 생겼어요.
 
 ```swift
 public enum Optional<Wrapped> {
-    case None
-    case Some(Wrapped)
+  case none
+  case some(Wrapped)
 }
 ```
 
@@ -163,17 +163,17 @@ public enum Optional<Wrapped> {
 let age: Int? = 20
 
 switch age {
-case .None: // `nil`인 경우
-    print("나이 정보가 없습니다.")
+case .none: // `nil`인 경우
+  print("나이 정보가 없습니다.")
 
-case .Some(let x) where x < 20:
-    print("청소년")
+case .some(let x) where x < 20:
+  print("청소년")
 
-case .Some(let x) where x < 65:
-    print("성인")
+case .some(let x) where x < 65:
+  print("성인")
 
 default:
-    print("어르신")
+  print("어르신")
 }
 ```
 

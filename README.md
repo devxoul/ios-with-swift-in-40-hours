@@ -1,8 +1,10 @@
 # 40시간만에 Swift로 iOS 앱 만들기
 
-[![gitbook](https://img.shields.io/badge/gitbook-read_it-green.svg)](https://devxoul.gitbooks.io/ios-with-swift-in-40-hours/content/)
+[![GitBook](https://img.shields.io/badge/GitBook-Read_it-green.svg?style=social&maxAge=2592000&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAmVBMVEUAAABOTk5OTk5OTk5OTk5NTU1NTU1NTU1NTU1OTk5%2Ff39OTk5OTk5NTU1MTExNTU1MTExNTU1OTk5NTU1OTk5QUFBNTU1NTU1NTU1OTk5MTExNTU1LS0tRUVFISEhNTU1NTU1OTk5NTU1NTU1NTU1OTk5OTk5MTExVVVVNTU1NTU1NTU1NTU1OTk5NTU1MTExOTk5OTk5OTk5MEssdAAAAMnRSTlMA4MCgIfiS9KkqAjUa25xC%2FO%2FRtVwFdG1PTNU%2BFBEJuoNnUzGOildIDerky697YjrGNxrtt7cAAAJeSURBVFjD3dZZc6JAFIbho9Ds%2Bw6C%2BzZxS77%2F%2F%2BNGSCgyNoppb6by3nDjeUA5VTb9gqIo2mauKVf0o2JL%2F3DzbLkltDF77CSZTAOV7kIJgz9oI9zkz06TKfWnp9oINxF6UrVozz3zzuluywO84Zj0LXnDTXMA12zSjptHDxgG%2BDSrubsGQAyAuiVaqHgKsPs%2Ft3bQFxuptwDRXt%2BlytjHw9TDdVlWJdGYA9qs5TpAbyPprBvUdAfokMUYNxUnneoGgC5ZYeg6XohoAOCyNHwVmEQCAFG7%2BDI9D1RnZb2digPL5i2%2BTUSB3ANUFVD1fqA0deMRYIzAIiNOPcz6AH1WP11q3AdMYF5fJaDiAVNFk3MfWAJ5fV0AKw6IbSCYOwxY3gVc4FRfFcDigAwIYyLTw%2FguMPXhX4hyhoA4YA40LycEuwtQAiCwAeQ8sPn6XtojgNaoYynxQAQo9YL7ODzaxBDXjn2buP8DSNliBCweARKuST1A89M0hYYgQK4PwHNiEgUMD9d2JAzIqLuIAxHqKiGgmylIGFiibi4MuCqueZYYYFw0NG1IBDCTAp8FUyHAw1dvMgkAXbZMLwFSRa8A7xMicWCkmEP%2FC3bxflRSV%2BsDpA%2BD2qbmeaONC5t1ABe%2FB%2B3wbnNgz5yRRiedB8pzyH5wyAqS8jswjbjpAQDwtEkLuIoveMzr%2Bp%2BBeG%2FJK3ebzp2ZzfBU%2FkFbJ9FuJZf7mP7JkPNEs%2FGgQkpdiwaqMqVAT7aSVfRschLc7NZcpx%2B2chjawolBAlkK%2BxzXSTT9HXjL6YViZVbSaxn06%2FsLmUmIG8j1CgMAAAAASUVORK5CYII%3D)](https://devxoul.gitbooks.io/ios-with-swift-in-40-hours/content/)
+[![Gratipay](https://img.shields.io/gratipay/devxoul.svg?style=social&label=Donate&maxAge=2592000)](https://gratipay.com/~devxoul/)
+[![GitHub stars](https://img.shields.io/github/stars/devxoul/ios-with-swift-in-40-hours.svg?style=social&label=Star)](https://github.com/devxoul/ios-with-swift-in-40-hours)
 
-선린인터넷고등학교 2015년 겨울방학 소수전공 특강을 위한 교재입니다. 40시간만에 Swift를 가지고 iOS 앱 하나를 만들어봅시다.
+선린인터넷고등학교 2015년 겨울방학 소수전공 특강을 위한 교재입니다. 40시간만에 Swift를 가지고 iOS 앱 하나를 만들어봅시다. 본 교재에서는 Swift 3 버전을 다룹니다. (2015년 강의 당시에는 Swift 2 버전으로 진행)
 
 ⚠️ Swift에 관련된 내용까지만 집필을 마친 상태입니다. 이후 앱을 만드는 과정은 실습 위주로 진행되어 내용을 작성하지 않았습니다. 추후 관련 내용으로 강의를 하게 되거나, 혹은 다른 이유로 집필할 필요를 느끼게 되면 재집필할 계획입니다. 예제로 작성된 Todobox 앱은 [GitHub](https://github.com/devxoul/Todobox)에 오픈소스로 공개되어 있습니다.
 

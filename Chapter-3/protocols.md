@@ -5,10 +5,10 @@
 ```swift
 /// 전송가능한 인터페이스를 정의합니다.
 protocol Sendable {
-    var from: String? { get }
-    var to: String { get }
+  var from: String? { get }
+  var to: String { get }
 
-    func send()
+  func send()
 }
 ```
 
@@ -16,31 +16,31 @@ protocol Sendable {
 
 ```swift
 struct Mail: Sendable {
-    var from: String?
-    var to: String
+  var from: String?
+  var to: String
 
-    func send() {
-        print("Send a mail from \(self.from) to \(self.to)")
-    }
+  func send() {
+    print("Send a mail from \(self.from) to \(self.to)")
+  }
 }
 
 struct Feedback: Sendable {
-    var from: String? {
-        return nil // 피드백은 무조건 익명으로 보냅니다.
-    }
-    var to: String
+  var from: String? {
+    return nil // 피드백은 무조건 익명으로 보냅니다.
+  }
+  var to: String
 
-    func send() {
-        print("Send a feedback to \(self.to)")
-    }
+  func send() {
+    print("Send a feedback to \(self.to)")
+  }
 }
 ```
 
 프로토콜은 마치 추상클래스처럼 사용될 수 있습니다.
 
 ```swift
-func sendAnything(sendable: Sendable) {
-    sendable.send()
+func sendAnything(_ sendable: Sendable) {
+  sendable.send()
 }
 
 let mail = Mail(from: "devxoul@gmail.com", to: "jeon@stylesha.re")
@@ -56,11 +56,11 @@ sendAnything(feedback)
 
 ```swift
 protocol Messagable {
-    var message: String? { get }
+  var message: String? { get }
 }
 
 protocol Sendable: Messagable {
-    // ...
+  // ...
 }
 ```
 
@@ -101,7 +101,7 @@ let number: Int? = anyNumber as? Int
 
 ```swift
 if let number = anyNumber as? Int {
-    print(number + 1)
+  print(number + 1)
 }
 ```
 
@@ -126,8 +126,8 @@ Swift에는 기본적으로 제공하는 기초적인 프로토콜들이 있습�
 
 ```swift
 public protocol CustomStringConvertible {
-    /// A textual representation of `self`.
-    public var description: String { get }
+  /// A textual representation of `self`.
+  public var description: String { get }
 }
 ```
 
@@ -135,10 +135,10 @@ public protocol CustomStringConvertible {
 
 ```swift
 struct Dog: CustomStringConvertible {
-    var name: String
-    var description: String {
-        return "🐶 \(self.name)"
-    }
+  var name: String
+  var description: String {
+    return "🐶 \(self.name)"
+  }
 }
 
 let dog = Dog(name: "찡코")
@@ -147,7 +147,7 @@ print(dog) // 🐶 찡코
 
 > **응용하기**: `CustomDebugStringConvertible`을 적용해봅시다.
 
-#### LiteralConvertible
+#### ExpressibleBy
 
 우리는 지금까지 `10`은 `Int`, `"Hi"`는 `String`이라고 '당연하게' 인지하고 있었습니다. 하지만, 엄밀히 하자면 `10`은 원래 `Int(10)`으로 선언되어야 하고, `"Hi"`는 `String("Hi")`로 선언되어야 합니다. `Int`와 `String` 모두 생성자를 가지는 구조체이기 때문이죠.
 
@@ -158,25 +158,25 @@ let number = 10
 let string = "Hi"
 let array = ["a", "b", "c"]
 let dictionary = [
-    "key1": "value1",
-    "key2": "value2",
+  "key1": "value1",
+  "key2": "value2",
 ]
 ```
 
-이 리터럴을 가능하게 해주는 프로토콜이 있답니다. 바로 `XxxLiteralConvertible` 인데요. `Int`는 `IntegerLiteralConvertible`을, `String`은 `StringLiteralConvertible`을, `Array`는 `ArrayLiteralConvertible`을, `Dictionary`는 `DictionaryLiteralConvertible` 프로토콜을 따르고 있습니다. 각 프로토콜은 리터럴 값을 받는 생성자를 정의하고 있어요. 놀랍죠?
+이 리터럴을 가능하게 해주는 프로토콜이 있답니다. 바로 `ExpressibleByXXXLiteral` 인데요. `Int`는 `ExpressibleByIntegerLiteral`을, `String`은 `ExpressibleByStringLiteral`을, `Array`는 `ExpressibleByArrayLiteral`을, `Dictionary`는 `ExpressibleByDictionaryLiteral` 프로토콜을 따르고 있습니다. 각 프로토콜은 리터럴 값을 받는 생성자를 정의하고 있어요. 놀랍죠?
 
 우리도 만들 수 있어요.
 
 ```swift
-struct DollarConverter: IntegerLiteralConvertible {
-    typealias IntegerLiteralType = Int
+struct DollarConverter: ExpressibleByIntegerLiteral {
+  typealias IntegerLiteralType = Int
 
-    let price = 1_177
-    var dollars: Int
+  let price = 1_177
+  var dollars: Int
 
-    init(integerLiteral value: IntegerLiteralType) {
-        self.dollars = value * self.price
-    }
+  init(integerLiteral value: IntegerLiteralType) {
+    self.dollars = value * self.price
+  }
 }
 
 let converter: DollarConverter = 100
@@ -187,9 +187,9 @@ converter.dollars // 117700
 
 > **Tip**: `1177`은 가독성을 위해 `1_177`로 쓸 수 있습니다. `12_345`는 `12345`랑 같아요. `1234_5`도 `12345`와 같습니다.
 
-분명히 구조체를 만들었는데, `IntegerLiteralConvertible`을 적용하니까 `= 100`과 같은 문법을 사용할 수 있게 되었습니다.
+분명히 구조체를 만들었는데, `ExpressibleByIntegerLiteral `을 적용하니까 `= 100`과 같은 문법을 사용할 수 있게 되었습니다.
 
-> **응용하기**: `ArrayLiteralConvertible`을 적용하여 아래와 같이 홀수와 짝수를 나눠서 보관하는 `NumberFilter` 구조체를 만들어보세요.
+> **응용하기**: `ExpressibleByArrayLiteral`을 적용하여 아래와 같이 홀수와 짝수를 나눠서 보관하는 `OddEvenFilter` 구조체를 만들어보세요.
 >
 > ```swift
 > let oddEvenFilter: OddEvenFilter = [1, 3, 5, 2, 7, 4]

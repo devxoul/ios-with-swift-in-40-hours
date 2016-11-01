@@ -60,7 +60,7 @@ Optional
 
 ```swift
 if let email = optionalEmail {
-    print(email) // optionalEmail의 값이 존재한다면 해당 값이 출력됩니다.
+  print(email) // optionalEmail의 값이 존재한다면 해당 값이 출력됩니다.
 }
 // optionalEmail의 값이 존재하지 않는다면 if문을 그냥 지나칩니다.
 ```
@@ -72,7 +72,7 @@ var optionalName: String? = "전수열"
 var optionalEmail: String? = "devxoul@gmail.com"
 
 if let name = optionalName, email = optionalEmail {
-    // name과 email 값이 존재
+  // name과 email 값이 존재
 }
 ```
 
@@ -80,8 +80,8 @@ if let name = optionalName, email = optionalEmail {
 >
 > ```swift
 > if let name = optionalName,
->    let email = optionalEmail {
->     // name과 email 값이 존재
+>   let email = optionalEmail {
+>   // name과 email 값이 존재
 > }
 > ```
 > 
@@ -91,21 +91,21 @@ if let name = optionalName, email = optionalEmail {
 
 ```swift
 if let name = optionalName {
-    if let email = optionalEmail {
-        // name과 email 값이 존재
-    }
+  if let email = optionalEmail {
+    // name과 email 값이 존재
+  }
 }
 ```
 
 > **Tip**: 한 번의 `if`문에서 여러 옵셔널을 바인딩할 수 있게 된 것은 Swift 1.2 버전부터입니다. 이전 버전까지는 바로 위와 같이 여러 번으로 감싸진 옵셔널 바인딩을 사용했습니다.
 
-옵셔널을 바인딩할 때 `where` 키워드를 통해 조건도 함께 지정할 수 있습니다. `where` 절은 옵셔널 바인딩이 일어난 후에 실행됩니다. 즉, 옵셔널이 벗겨진 값을 가지고 조건을 검사하게 됩니다.
+옵셔널을 바인딩할 때 `,`를 사용해서 조건도 함께 지정할 수 있습니다. `,` 이후의 조건절은 옵셔널 바인딩이 일어난 후에 실행됩니다. 즉, 옵셔널이 벗겨진 값을 가지고 조건을 검사하게 됩니다.
 
 ```swift
 var optionalAge: Int? = 22
 
-if let age = optionalAge where age >= 20 {
-    // age의 값이 존재하고, 20 이상입니다.
+if let age = optionalAge, age >= 20 {
+  // age의 값이 존재하고, 20 이상입니다.
 }
 ```
 
@@ -113,9 +113,9 @@ if let age = optionalAge where age >= 20 {
 
 ```swift
 if let age = optionalAge {
-    if age >= 20 {
-        // age의 값이 존재하고, 20 이상입니다.
-    }
+  if age >= 20 {
+    // age의 값이 존재하고, 20 이상입니다.
+  }
 }
 ```
 
@@ -129,10 +129,10 @@ Swift 코드를 간결하게 만들어주는 많은 요소들이 있는데, *옵
 let array: [String]? = []
 var isEmptyArray = false
 
-if let array = array where array.isEmpty {
-    isEmptyArray = true
+if let array = array, array.isEmpty {
+  isEmptyArray = true
 } else {
-    isEmptyArray = false
+  isEmptyArray = false
 }
 
 isEmptyArray
@@ -213,3 +213,5 @@ print(email) // 런타임 에러!
 > **fatal error: unexpectedly found nil while unwrapping an Optional value**
 
 가급적이면 일반적인 옵셔널을 사용해서 정의하고, 옵셔널 바인딩 또는 옵셔널 체이닝을 통해 값에 접근하는 것이 더 바람직합니다.
+
+> **Tip**: Swift 2 버전에서는 `"\(email)"`과 같이 문자열을 포맷팅하면 `devxoul@gmail.com`이 나왔으나, Swift 3 버전부터는 `ImplicitlyUnwrappedOptional`을 문자열 포맷팅 할 경우 `Optional("devxoul@gmail.com")`로 포맷팅되니 주의해서 사용해야 합니다. Swift 3 버전부터 `ImplicitlyUnwrappedOptional`을 일반 `Optional`과 거의 동일하게 취급했기 때문인데, 자세한 이유는 [SE-0054](https://github.com/apple/swift-evolution/blob/master/proposals/0054-abolish-iuo.md) 문서에 잘 나와있습니다.

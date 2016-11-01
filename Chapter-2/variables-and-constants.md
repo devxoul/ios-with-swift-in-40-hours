@@ -80,9 +80,9 @@ Swift 컴파일러도 마찬가지로, 큰 따옴표(`"`)로 감싸진 텍스트
 ```swift
 var languages = ["Swift", "Objective-C", "Python"]
 var capitals = [
-    "한국": "서울",
-    "일본": "도쿄",
-    "중국": "베이징",
+  "한국": "서울",
+  "일본": "도쿄",
+  "중국": "베이징",
 ]
 ```
 
@@ -103,9 +103,9 @@ capitals["프랑스"] = "파리"
 ```swift
 var languages: [String] = ["Swift", "Objective-C", "Python"]
 var capitals: [String: String] = [
-    "한국": "서울",
-    "일본": "도쿄",
-    "중국": "베이징",
+  "한국": "서울",
+  "일본": "도쿄",
+  "중국": "베이징",
 ]
 ```
 

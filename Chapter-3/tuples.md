@@ -48,26 +48,25 @@ lattePrice // 5600
 ```swift
 /// 커피 이름에 맞는 커피 가격 정보를 반환합니다. 일치하는 커피 이름이 없다면 `nil`을 반환합니다.
 ///
-/// - Parameters:
-///     - name: 커피 이름
+/// - parameter name: 커피 이름
 ///
-/// - Returns: 커피 이름과 가격 정보로 구성된 튜플을 반환합니다.
-func coffeeInfoForName(name: String) -> (name: String, price: Int)? {
-    let coffeeInfoList: [(name: String, price: Int)] = [
-        ("아메리카노", 5100),
-        ("라떼", 5600),
-    ]
-    for coffeeInfo in coffeeInfoList {
-        if coffeeInfo.name == name {
-            return coffeeInfo
-        }
+/// - returns: 커피 이름과 가격 정보로 구성된 튜플을 반환합니다.
+func coffeeInfo(for name: String) -> (name: String, price: Int)? {
+  let coffeeInfoList: [(name: String, price: Int)] = [
+    ("아메리카노", 5100),
+    ("라떼", 5600),
+  ]
+  for coffeeInfo in coffeeInfoList {
+    if coffeeInfo.name == name {
+      return coffeeInfo
     }
-    return nil
+  }
+  return nil
 }
 
-coffeeInfoForName("아메리카노")?.price // 5100
-coffeeInfoForName("에스프레소")?.price // nil
+coffeeInfo(for: "아메리카노")?.price // 5100
+coffeeInfo(for: "에스프레소")?.price // nil
 
-let (_, lattePrice) = coffeeInfoForName("라떼")!
+let (_, lattePrice) = coffeeInfo(for: "라떼")!
 lattePrice // 5600
 ```
