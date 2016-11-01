@@ -99,12 +99,12 @@ if let name = optionalName {
 
 > **Tip**: 한 번의 `if`문에서 여러 옵셔널을 바인딩할 수 있게 된 것은 Swift 1.2 버전부터입니다. 이전 버전까지는 바로 위와 같이 여러 번으로 감싸진 옵셔널 바인딩을 사용했습니다.
 
-옵셔널을 바인딩할 때 `where` 키워드를 통해 조건도 함께 지정할 수 있습니다. `where` 절은 옵셔널 바인딩이 일어난 후에 실행됩니다. 즉, 옵셔널이 벗겨진 값을 가지고 조건을 검사하게 됩니다.
+옵셔널을 바인딩할 때 `,`를 사용해서 조건도 함께 지정할 수 있습니다. `,` 이후의 조건절은 옵셔널 바인딩이 일어난 후에 실행됩니다. 즉, 옵셔널이 벗겨진 값을 가지고 조건을 검사하게 됩니다.
 
 ```swift
 var optionalAge: Int? = 22
 
-if let age = optionalAge where age >= 20 {
+if let age = optionalAge, age >= 20 {
   // age의 값이 존재하고, 20 이상입니다.
 }
 ```
@@ -129,7 +129,7 @@ Swift 코드를 간결하게 만들어주는 많은 요소들이 있는데, *옵
 let array: [String]? = []
 var isEmptyArray = false
 
-if let array = array where array.isEmpty {
+if let array = array, array.isEmpty {
   isEmptyArray = true
 } else {
   isEmptyArray = false
