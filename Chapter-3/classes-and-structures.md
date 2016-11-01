@@ -8,7 +8,11 @@ class Dog {
   var age: Int?
 
   func simpleDescription() -> String {
-    return "🐶 \(self.name)"
+    if let name = self.name {
+      return "🐶 \(name)"
+    } else {
+      return "🐶 No name"
+    }
   }
 }
 
@@ -17,7 +21,11 @@ struct Coffee {
   var size: String?
 
   func simpleDescription() -> String {
-    return "☕️ \(self.name)"
+    if let name = self.name {
+      return "☕️ \(name)"
+    } else {
+      return "☕️ No name"
+    }
   }
 }
 
@@ -76,7 +84,7 @@ class Dog {
   }
 }
 
-class Coffee {
+struct Coffee {
   var name: String?
   var size: String?
   
@@ -149,7 +157,11 @@ class Dog: Animal {
   }
   
   func simpleDescription() -> String {
-    return "🐶 \(self.name)"
+    if let name = self.name {
+      return "🐶 \(name)"
+    } else {
+      return "🐶 No name"
+    }
   }
 }
 ```
