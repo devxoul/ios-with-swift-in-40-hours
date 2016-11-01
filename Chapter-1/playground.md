@@ -14,7 +14,7 @@ Playground는 Xcode 6 업데이트에 새로 생긴 기능으로, Swift 코드�
 
 ```swift
 for i in 0..<100 {
-    i
+  i
 }
 ```
 

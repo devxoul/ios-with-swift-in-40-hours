@@ -5,10 +5,10 @@
 ```swift
 /// 전송가능한 인터페이스를 정의합니다.
 protocol Sendable {
-    var from: String? { get }
-    var to: String { get }
+  var from: String? { get }
+  var to: String { get }
 
-    func send()
+  func send()
 }
 ```
 
@@ -16,23 +16,23 @@ protocol Sendable {
 
 ```swift
 struct Mail: Sendable {
-    var from: String?
-    var to: String
+  var from: String?
+  var to: String
 
-    func send() {
-        print("Send a mail from \(self.from) to \(self.to)")
-    }
+  func send() {
+    print("Send a mail from \(self.from) to \(self.to)")
+  }
 }
 
 struct Feedback: Sendable {
-    var from: String? {
-        return nil // 피드백은 무조건 익명으로 보냅니다.
-    }
-    var to: String
+  var from: String? {
+    return nil // 피드백은 무조건 익명으로 보냅니다.
+  }
+  var to: String
 
-    func send() {
-        print("Send a feedback to \(self.to)")
-    }
+  func send() {
+    print("Send a feedback to \(self.to)")
+  }
 }
 ```
 
@@ -40,7 +40,7 @@ struct Feedback: Sendable {
 
 ```swift
 func sendAnything(sendable: Sendable) {
-    sendable.send()
+  sendable.send()
 }
 
 let mail = Mail(from: "devxoul@gmail.com", to: "jeon@stylesha.re")
@@ -56,11 +56,11 @@ sendAnything(feedback)
 
 ```swift
 protocol Messagable {
-    var message: String? { get }
+  var message: String? { get }
 }
 
 protocol Sendable: Messagable {
-    // ...
+  // ...
 }
 ```
 
@@ -101,7 +101,7 @@ let number: Int? = anyNumber as? Int
 
 ```swift
 if let number = anyNumber as? Int {
-    print(number + 1)
+  print(number + 1)
 }
 ```
 
@@ -126,8 +126,8 @@ Swift에는 기본적으로 제공하는 기초적인 프로토콜들이 있습�
 
 ```swift
 public protocol CustomStringConvertible {
-    /// A textual representation of `self`.
-    public var description: String { get }
+  /// A textual representation of `self`.
+  public var description: String { get }
 }
 ```
 
@@ -135,10 +135,10 @@ public protocol CustomStringConvertible {
 
 ```swift
 struct Dog: CustomStringConvertible {
-    var name: String
-    var description: String {
-        return "🐶 \(self.name)"
-    }
+  var name: String
+  var description: String {
+    return "🐶 \(self.name)"
+  }
 }
 
 let dog = Dog(name: "찡코")
@@ -158,8 +158,8 @@ let number = 10
 let string = "Hi"
 let array = ["a", "b", "c"]
 let dictionary = [
-    "key1": "value1",
-    "key2": "value2",
+  "key1": "value1",
+  "key2": "value2",
 ]
 ```
 
@@ -169,14 +169,14 @@ let dictionary = [
 
 ```swift
 struct DollarConverter: IntegerLiteralConvertible {
-    typealias IntegerLiteralType = Int
+  typealias IntegerLiteralType = Int
 
-    let price = 1_177
-    var dollars: Int
+  let price = 1_177
+  var dollars: Int
 
-    init(integerLiteral value: IntegerLiteralType) {
-        self.dollars = value * self.price
-    }
+  init(integerLiteral value: IntegerLiteralType) {
+    self.dollars = value * self.price
+  }
 }
 
 let converter: DollarConverter = 100

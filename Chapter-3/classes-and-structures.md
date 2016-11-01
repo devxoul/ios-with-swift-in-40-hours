@@ -4,21 +4,21 @@
 
 ```swift
 class Dog {
-    var name: String?
-    var age: Int?
+  var name: String?
+  var age: Int?
 
-    func simpleDescription() -> String {
-        return "🐶 \(self.name)"
-    }
+  func simpleDescription() -> String {
+    return "🐶 \(self.name)"
+  }
 }
 
 struct Coffee {
-    var name: String?
-    var size: String?
+  var name: String?
+  var size: String?
 
-    func simpleDescription() -> String {
-        return "☕️ \(self.name)"
-    }
+  func simpleDescription() -> String {
+    return "☕️ \(self.name)"
+  }
 }
 
 var myDog = Dog()
@@ -36,12 +36,12 @@ print(myCoffee.simpleDescription()) // ☕️ 아메리카노
 
 ```swift
 class Animal {
-    let numberOfLegs = 4
+  let numberOfLegs = 4
 }
 
 class Dog: Animal {
-    var name: String?
-    var age: Int?
+  var name: String?
+  var age: Int?
 }
 
 var myDog = Dog()
@@ -68,21 +68,21 @@ coffee2.name             // coffee2는 완전히 별개이기 때문에 이름�
 
 ```swift
 class Dog {
-    var name: String?
-    var age: Int?
-    
-    init() {
-        self.age = 0
-    }
+  var name: String?
+  var age: Int?
+  
+  init() {
+    self.age = 0
+  }
 }
 
 class Coffee {
-    var name: String?
-    var size: String?
-    
-    init() {
-        self.size = "Tall"
-    }
+  var name: String?
+  var size: String?
+  
+  init() {
+    self.size = "Tall"
+  }
 }
 ```
 
@@ -90,8 +90,8 @@ class Coffee {
 
 ```swift
 class Dog {
-    var name: String?
-    var age: Int // 컴파일 에러!
+  var name: String?
+  var age: Int // 컴파일 에러!
 }
 ```
 
@@ -101,8 +101,8 @@ class Dog {
 
 ```swift
 class Dog {
-    var name: String?
-    var age: Int = 0 // 속성을 정의할 때 초깃값 지정
+  var name: String?
+  var age: Int = 0 // 속성을 정의할 때 초깃값 지정
 }
 ```
 
@@ -110,12 +110,12 @@ class Dog {
 
 ```swift
 class Dog {
-    var name: String?
-    var age: Int
-    
-    init() {
-        self.age = 0 // 생성자에서 초깃값 지정
-    }
+  var name: String?
+  var age: Int
+  
+  init() {
+    self.age = 0 // 생성자에서 초깃값 지정
+  }
 }
 ```
 
@@ -123,13 +123,13 @@ class Dog {
 
 ```swift
 class Dog {
-    var name: String?
-    var age: Int
-    
-    init(name: String?, age: Int) {
-        self.name = name
-        self.age = age
-    }
+  var name: String?
+  var age: Int
+  
+  init(name: String?, age: Int) {
+    self.name = name
+    self.age = age
+  }
 }
 
 var myDog = Dog(name: "찡코", age: 3)
@@ -139,18 +139,18 @@ var myDog = Dog(name: "찡코", age: 3)
 
 ```swift
 class Dog: Animal {
-    var name: String?
-    var age: Int
-    
-    override init() {
-        self.age = 0 // 초깃값 설정
-        super.init() // 상위 클래스 생성자 호출
-        print(self.simpleDescription()) // 여기서부터 `self` 접근 가능
-    }
-    
-    func simpleDescription() -> String {
-        return "🐶 \(self.name)"
-    }
+  var name: String?
+  var age: Int
+  
+  override init() {
+    self.age = 0 // 초깃값 설정
+    super.init() // 상위 클래스 생성자 호출
+    print(self.simpleDescription()) // 여기서부터 `self` 접근 가능
+  }
+  
+  func simpleDescription() -> String {
+    return "🐶 \(self.name)"
+  }
 }
 ```
 
@@ -158,9 +158,9 @@ class Dog: Animal {
 
 ```swift
 override init() {
-    self.age = 0
-    print(self.simpleDescription()) // 컴파일 에러!
-    super.init()
+  self.age = 0
+  print(self.simpleDescription()) // 컴파일 에러!
+  super.init()
 }
 ```
 
@@ -170,11 +170,11 @@ override init() {
 
 ```swift
 class Dog {
-    // ...
-    
-    deinit {
-        print("메모리에서 해제됨")
-    }
+  // ...
+  
+  deinit {
+    print("메모리에서 해제됨")
+  }
 }
 ```
 
@@ -186,23 +186,23 @@ class Dog {
 
 ```swift
 struct Hex {
-    var decimal: Int?
-    var hexString: String? {
-        get {
-            if let decimal = self.decimal {
-                return String(decimal, radix: 16)
-            } else {
-                return nil
-            }
-        }
-        set {
-            if let newValue = newValue {
-                self.decimal = Int(newValue, radix: 16)
-            } else {
-                self.decimal = nil
-            }
-        }
+  var decimal: Int?
+  var hexString: String? {
+    get {
+      if let decimal = self.decimal {
+        return String(decimal, radix: 16)
+      } else {
+        return nil
+      }
     }
+    set {
+      if let newValue = newValue {
+        self.decimal = Int(newValue, radix: 16)
+      } else {
+        self.decimal = nil
+      }
+    }
+  }
 }
 
 var hex = Hex()
@@ -219,14 +219,14 @@ hex.decimal // 11
 
 ```swift
 class Hex {
-    // ...
+  // ...
 
-    var hexCode: String? {
-        if let hex = self.hexString {
-            return "0x" + hex
-        }
-        return nil
+  var hexCode: String? {
+    if let hex = self.hexString {
+      return "0x" + hex
     }
+    return nil
+  }
 }
 ```
 
@@ -234,14 +234,14 @@ class Hex {
 
 ```swift
 struct Hex {
-    var decimal: Int? {
-        willSet {
-            print("\(self.decimal)에서 \(newValue)로 값이 바뀔 예정입니다.")
-        }
-        didSet {
-            print("\(oldValue)에서 \(self.decimal)로 값이 바뀌었습니다.")
-        }
+  var decimal: Int? {
+    willSet {
+      print("\(self.decimal)에서 \(newValue)로 값이 바뀔 예정입니다.")
     }
+    didSet {
+      print("\(oldValue)에서 \(self.decimal)로 값이 바뀌었습니다.")
+    }
+  }
 }
 ```
 

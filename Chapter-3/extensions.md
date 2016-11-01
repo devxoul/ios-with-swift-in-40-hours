@@ -4,13 +4,13 @@ Swift에서는 이미 정의된 타입에 새로운 속성이나 메서드를 �
 
 ```swift
 extension String {
-    var length: Int {
-        return self.characters.count
-    }
+  var length: Int {
+    return self.characters.count
+  }
 
-    func reverse() -> String {
-        return self.characters.reverse().map { String($0) }.joinWithSeparator("")
-    }
+  func reverse() -> String {
+    return self.characters.reverse().map { String($0) }.joinWithSeparator("")
+  }
 }
 
 let str = "안녕하세요"

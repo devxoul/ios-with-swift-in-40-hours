@@ -7,13 +7,13 @@ var age = 19
 var student = ""
 
 if age >= 8 && age < 14 {
-    student = "초등학생"
+  student = "초등학생"
 } else if age < 17 {
-    student = "중학생"
+  student = "중학생"
 } else if age < 20 {
-    student = "고등학생"
+  student = "고등학생"
 } else {
-    student = "기타"
+  student = "기타"
 }
 
 student // 고등학생
@@ -24,7 +24,7 @@ student // 고등학생
 ```swift
 var number = 0
 if !number { // 컴파일 에러!
-    // ...
+  // ...
 }
 ```
 
@@ -36,7 +36,7 @@ if !number { // 컴파일 에러!
 
 ```swift
 if number == 0 {
-    // ...
+  // ...
 }
 ```
 
@@ -52,13 +52,13 @@ if languages.isEmpty { ... }
 ```swift
 switch age {
 case 8..<14:
-    student = "초등학생"
+  student = "초등학생"
 case 14..<17:
-    student = "중학생"
+  student = "중학생"
 case 17..<20:
-    student = "고등학생"
+  student = "고등학생"
 default:
-    student = "기타"
+  student = "기타"
 }
 ```
 
@@ -68,11 +68,11 @@ default:
 
 ```swift
 for language in languages {
-    print("저는 \(language) 언어를 다룰 수 있습니다.")
+  print("저는 \(language) 언어를 다룰 수 있습니다.")
 }
 
 for (country, capital) in capitals {
-    print("\(country)의 수도는 \(capital)입니다.")
+  print("\(country)의 수도는 \(capital)입니다.")
 }
 ```
 
@@ -80,7 +80,7 @@ for (country, capital) in capitals {
 
 ```swift
 for i in 0..<100 {
-    i
+  i
 }
 ```
 
@@ -88,7 +88,7 @@ for i in 0..<100 {
 
 ```swift
 for _ in 0..<10 {
-    print("Hello!")
+  print("Hello!")
 }
 ```
 
@@ -99,6 +99,6 @@ for _ in 0..<10 {
 ```swift
 var i = 0
 while i < 100 {
-    i += 1
+  i += 1
 }
 ```

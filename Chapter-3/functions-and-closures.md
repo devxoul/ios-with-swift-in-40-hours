@@ -4,11 +4,11 @@
 
 ```swift
 func hello(name: String, time: Int) -> String {
-    var string = ""
-    for _ in 0..<time {
-        string += "\(name)님 안녕하세요!\n"
-    }
-    return string
+  var string = ""
+  for _ in 0..<time {
+    string += "\(name)님 안녕하세요!\n"
+  }
+  return string
 }
 ```
 
@@ -22,7 +22,7 @@ hello("전수열", time: 3)
 
 ```swift
 func hello(name: String, numberOfTimes time: Int) {
-    // 이곳에서는 `time`을 사용합니다.
+  // 이곳에서는 `time`을 사용합니다.
 }
 
 hello("전수열", numberOfTimes: 3) // 이곳에서는 `numberOfTimes`를 사용합니다.
@@ -32,7 +32,7 @@ hello("전수열", numberOfTimes: 3) // 이곳에서는 `numberOfTimes`를 사�
 
 ```swift
 func hello(withName name: String, numberOfTimes time: Int) {
-    // ...
+  // ...
 }
 
 hello(withName: "전수열", numberOfTimes: 3)
@@ -42,7 +42,7 @@ hello(withName: "전수열", numberOfTimes: 3)
 
 ```swift
 func hello(name: String, _ time: Int) {
-    // ...
+  // ...
 }
 
 hello("전수열", 3)
@@ -52,7 +52,7 @@ hello("전수열", 3)
 
 ```swift
 func hello(name: String, time: Int = 1) {
-    // ...
+  // ...
 }
 
 hello("전수열")
@@ -62,11 +62,11 @@ hello("전수열")
 
 ```swift
 func sum(numbers: Int...) -> Int {
-    var sum = 0
-    for number in numbers {
-        sum += number
-    }
-    return sum
+  var sum = 0
+  for number in numbers {
+    sum += number
+  }
+  return sum
 }
 
 sum(1, 2)
@@ -77,13 +77,13 @@ sum(3, 4, 5)
 
 ```swift
 func hello(name: String, time: Int) {
-    func message(name: String) {
-        return "\(name)님 안녕하세요!"
-    }
+  func message(name: String) {
+    return "\(name)님 안녕하세요!"
+  }
 
-    for _ in 0..<time {
-        print message(name)
-    }
+  for _ in 0..<time {
+    print message(name)
+  }
 }
 ```
 
@@ -91,10 +91,10 @@ func hello(name: String, time: Int) {
 
 ```swift
 func helloGenerator(message: String) -> String -> String {
-    func hello(name: String) -> String {
-        return name + message
-    }
-    return hello
+  func hello(name: String) -> String {
+    return name + message
+  }
+  return hello
 }
 
 let hello = helloGenerator("님 안녕하세요!")
@@ -107,10 +107,10 @@ hello("전수열")
 
 ```swift
 func helloGenerator(message: String) -> (String, String) -> String {
-    func hello(firstName: String, lastName: String) -> String {
-        return lastName + firstName + message
-    }
-    return hello
+  func hello(firstName: String, lastName: String) -> String {
+    return lastName + firstName + message
+  }
+  return hello
 }
 
 let hello = helloGenerator("님 안녕하세요!")
@@ -125,9 +125,9 @@ hello("수열", "전")
 
 ```swift
 func helloGenerator(message: String) -> (String, String) -> String {
-    return { (firstName: String, lastName: String) -> String in
-        return lastName + firstName + message
-    }
+  return { (firstName: String, lastName: String) -> String in
+    return lastName + firstName + message
+  }
 }
 ```
 
@@ -137,7 +137,7 @@ func helloGenerator(message: String) -> (String, String) -> String {
 
 ```swift
 { (firstName: String, lastName: String) -> String in
-    return lastName + firstName + message
+  return lastName + firstName + message
 }
 ```
 
@@ -147,9 +147,9 @@ Swift 컴파일러의 타입 추론 덕분에, `helloGenerator()` 함수에서 �
 
 ```swift
 func helloGenerator(message: String) -> (String, String) -> String {
-    return { firstName, lastName in
-        return lastName + firstName + message
-    }
+  return { firstName, lastName in
+    return lastName + firstName + message
+  }
 }
 ```
 
@@ -157,9 +157,9 @@ func helloGenerator(message: String) -> (String, String) -> String {
 
 ```swift
 func helloGenerator(message: String) -> (String, String) -> String {
-    return {
-        return $1 + $0 + message
-    }
+  return {
+    return $1 + $0 + message
+  }
 }
 ```
 
@@ -167,7 +167,7 @@ func helloGenerator(message: String) -> (String, String) -> String {
 
 ```swift
 func helloGenerator(message: String) -> (String, String) -> String {
-    return { $1 + $0 + message }
+  return { $1 + $0 + message }
 }
 ```
 
@@ -191,11 +191,11 @@ hello?("수열", "전")
 
 ```swift
 func manipulateNumber(number: Int, usingBlock block: Int -> Int) -> Int {
-    return block(number)
+  return block(number)
 }
 
 manipulateNumber(10, usingBlock: { (number: Int) -> Int in
-    return number * 2
+  return number * 2
 })
 ```
 
@@ -203,7 +203,7 @@ manipulateNumber(10, usingBlock: { (number: Int) -> Int in
 
 ```swift
 manipulateNumber(10, usingBlock: {
-    $0 * 2
+  $0 * 2
 })
 ```
 
@@ -211,7 +211,7 @@ manipulateNumber(10, usingBlock: {
 
 ```swift
 manipulateNumber(10) {
-    $0 * 2
+  $0 * 2
 }
 ```
 

@@ -60,7 +60,7 @@ Optional
 
 ```swift
 if let email = optionalEmail {
-    print(email) // optionalEmail의 값이 존재한다면 해당 값이 출력됩니다.
+  print(email) // optionalEmail의 값이 존재한다면 해당 값이 출력됩니다.
 }
 // optionalEmail의 값이 존재하지 않는다면 if문을 그냥 지나칩니다.
 ```
@@ -72,7 +72,7 @@ var optionalName: String? = "전수열"
 var optionalEmail: String? = "devxoul@gmail.com"
 
 if let name = optionalName, email = optionalEmail {
-    // name과 email 값이 존재
+  // name과 email 값이 존재
 }
 ```
 
@@ -80,8 +80,8 @@ if let name = optionalName, email = optionalEmail {
 >
 > ```swift
 > if let name = optionalName,
->    let email = optionalEmail {
->     // name과 email 값이 존재
+>   let email = optionalEmail {
+>   // name과 email 값이 존재
 > }
 > ```
 > 
@@ -91,9 +91,9 @@ if let name = optionalName, email = optionalEmail {
 
 ```swift
 if let name = optionalName {
-    if let email = optionalEmail {
-        // name과 email 값이 존재
-    }
+  if let email = optionalEmail {
+    // name과 email 값이 존재
+  }
 }
 ```
 
@@ -105,7 +105,7 @@ if let name = optionalName {
 var optionalAge: Int? = 22
 
 if let age = optionalAge where age >= 20 {
-    // age의 값이 존재하고, 20 이상입니다.
+  // age의 값이 존재하고, 20 이상입니다.
 }
 ```
 
@@ -113,9 +113,9 @@ if let age = optionalAge where age >= 20 {
 
 ```swift
 if let age = optionalAge {
-    if age >= 20 {
-        // age의 값이 존재하고, 20 이상입니다.
-    }
+  if age >= 20 {
+    // age의 값이 존재하고, 20 이상입니다.
+  }
 }
 ```
 
@@ -130,9 +130,9 @@ let array: [String]? = []
 var isEmptyArray = false
 
 if let array = array where array.isEmpty {
-    isEmptyArray = true
+  isEmptyArray = true
 } else {
-    isEmptyArray = false
+  isEmptyArray = false
 }
 
 isEmptyArray

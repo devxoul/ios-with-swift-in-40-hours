@@ -4,47 +4,47 @@
 
 ```swift
 enum Month: Int {
-    case January = 1
-    case February
-    case March
-    case April
-    case May
-    case June
-    case July
-    case August
-    case September
-    case October
-    case November
-    case December
+  case January = 1
+  case February
+  case March
+  case April
+  case May
+  case June
+  case July
+  case August
+  case September
+  case October
+  case November
+  case December
 
-    func simpleDescription() -> String {
-        switch self {
-        case .January:
-            return "1월"
-        case .February:
-            return "2월"
-        case .March:
-            return "3월"
-        case .April:
-            return "4월"
-        case .May:
-            return "5월"
-        case .June:
-            return "6월"
-        case .July:
-            return "7월"
-        case .August:
-            return "8월"
-        case .September:
-            return "9월"
-        case .October:
-            return "10월"
-        case .November:
-            return "11월"
-        case .December:
-            return "12월"
-        }
+  func simpleDescription() -> String {
+    switch self {
+    case .January:
+      return "1월"
+    case .February:
+      return "2월"
+    case .March:
+      return "3월"
+    case .April:
+      return "4월"
+    case .May:
+      return "5월"
+    case .June:
+      return "6월"
+    case .July:
+      return "7월"
+    case .August:
+      return "8월"
+    case .September:
+      return "9월"
+    case .October:
+      return "10월"
+    case .November:
+      return "11월"
+    case .December:
+      return "12월"
     }
+  }
 }
 
 let december = Month.December
@@ -69,8 +69,8 @@ Month(rawValue: 13) // nil
 
 ```swift
 enum IssueState: String {
-    case Open = "open"
-    case Closed = "closed"
+  case Open = "open"
+  case Closed = "closed"
 }
 ```
 
@@ -80,23 +80,23 @@ Enum은 원시값을 가지지 않을 수도 있습니다. 원시값을 가져�
 
 ```swift
 enum Spoon {
-    case Dirt
-    case Bronze
-    case Silver
-    case Gold
+  case Dirt
+  case Bronze
+  case Silver
+  case Gold
 
-    func simpleDescription() -> String {
-        switch self {
-        case .Dirt:
-            return "흙수저"
-        case .Bronze:
-            return "동수저"
-        case .Silver:
-            return "은수저"
-        case .Gold:
-            return "금수저"
-        }
+  func simpleDescription() -> String {
+    switch self {
+    case .Dirt:
+      return "흙수저"
+    case .Bronze:
+      return "동수저"
+    case .Silver:
+      return "은수저"
+    case .Gold:
+      return "금수저"
     }
+  }
 }
 ```
 
@@ -106,7 +106,7 @@ Enum을 예측할 수 있다면 Enum의 이름을 생략할 수 있습니다. �
 let spoon: Spoon = .Gold // 변수에 타입 어노테이션이 있기 때문에 생략 가능
 
 func doSomething(spoon: Spoon) {
-    // ...
+  // ...
 }
 averageIncomeForSpoon(.Silver) // 함수 정의에 타입 어노테이션이 있기 때문에 생략 가능
 ```
@@ -117,8 +117,8 @@ Enum은 인자<sup>Argument</sup>을 가질 수 있습니다. 뚱딴지같은 �
 
 ```swift
 enum Error {
-    case InvalidParameter(String, String)
-    case Timeout
+  case InvalidParameter(String, String)
+  case Timeout
 }
 
 let error = Error.InvalidParameter("email", "이메일 형식이 올바르지 않습니다.")
@@ -128,17 +128,17 @@ let error = Error.InvalidParameter("email", "이메일 형식이 올바르지 �
 
 ```swift
 if case .InvalidParameter(let field, let message) = error {
-    print(field) // email
-    print(message) // 이메일 형식이 올바르지 않습니다.
+  print(field) // email
+  print(message) // 이메일 형식이 올바르지 않습니다.
 }
 
 switch error {
 case .InvalidParameter(let field, let message):
-    print(field) // email
-    print(message) // 이메일 형식이 올바르지 않습니다.
+  print(field) // email
+  print(message) // 이메일 형식이 올바르지 않습니다.
 
 default:
-    break
+  break
 }
 ```
 
@@ -150,8 +150,8 @@ default:
 
 ```swift
 public enum Optional<Wrapped> {
-    case None
-    case Some(Wrapped)
+  case None
+  case Some(Wrapped)
 }
 ```
 
@@ -164,16 +164,16 @@ let age: Int? = 20
 
 switch age {
 case .None: // `nil`인 경우
-    print("나이 정보가 없습니다.")
+  print("나이 정보가 없습니다.")
 
 case .Some(let x) where x < 20:
-    print("청소년")
+  print("청소년")
 
 case .Some(let x) where x < 65:
-    print("성인")
+  print("성인")
 
 default:
-    print("어르신")
+  print("어르신")
 }
 ```
 
