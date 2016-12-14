@@ -6,7 +6,7 @@
 
 ![xcode-new-project-template](../images/Chapter-1/xcode-new-project-template.png)
 
-새로운 프로젝트가 사용할 템플릿을 고를 수 있는데요. iOS, OS X, watchOS, tvOS 등 다양한 플랫폼을 개발하기 위한 프로젝트 템플릿들이 준비돼있습니다. 우리는 iOS 애플리케이션을 개발할 것이므로 iOS의 Single View Application을 선택해주세요.
+새로운 프로젝트가 사용할 템플릿을 고를 수 있는데요. iOS, macOS, watchOS, tvOS 등 다양한 플랫폼을 개발하기 위한 프로젝트 템플릿들이 준비돼있습니다. 우리는 iOS 애플리케이션을 개발할 것이므로 iOS의 Single View Application을 선택해주세요.
 
 ![xcode-new-project-options](../images/Chapter-1/xcode-new-project-options.png)
 
