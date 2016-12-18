@@ -47,3 +47,27 @@ iOS 프로젝트에서는 기본적으로 **`Main.storyboard`**라는 기본 스
 ![tableview-compare-plus-autolayout](../images/Chapter-4/tableview-compare-plus-autolayout.png)
 
 그리고 나서 아까와 같이 iPhone 7 시뮬레이터와 iPhone 7 Plus 시뮬레이터에서 각각 실행해봅시다. 이제 정상적으로 나오는 것을 볼 수 있습니다.
+
+### 테이블 뷰를 코드와 연동하기
+
+인터페이스 빌더에서 테이블 뷰를 추가했습니다. 인터페이스 빌더에서 추가한 것들을 작동하게 하려면 코드를 작성해야 하는데요. 이 테이블 뷰를 코드로 다루는 방법을 알아봅시다.
+
+프로젝트 생성시 자동으로 만들어진 **`ViewController.swift`** 파일을 열어보면, `UIViewController`를 상속받은 `ViewController` 클래스가 있습니다. 미리 작성된 메서드가 있는데, 이 메서드는 우선 지워줍시다. 그리고 이 클래스에 `tableView` 속성을 추가해봅니다. 우리는 이 속성의 값을 스토리보드에서 불러올 것이므로, `ViewController` 클래스 생성시에는 값이 없지만 생성 직후에는 값이 연결될 것임을 알고 있습니다. 그렇기 때문에 `ImplicitlyUnwrappedOptional`로 선언을 합니다.
+
+```swift
+class ViewController: UIViewController {
+  var tableView: UITableView!
+}
+```
+
+인터페이스 빌더와 연결할 때에는 특별한 키워드를 하나 더 추가해야 합니다. 바로 `@IBOutlet`이라는 어트리뷰트입니다. `var` 앞에 붙여주면 돼요.
+
+```swift
+class ViewController: UIViewController {
+  @IBOutlet var tableView: UITableView!
+}
+```
+
+`@IBOutlet`을 붙이면 해당 라인의 바로 왼쪽에 아래 이미지와 같이 동그란 모양이 생기는 것을 확인할 수 있습니다.
+
+![iboutlet-dot](../images/Chapter-4/iboutlet-dot.png)
