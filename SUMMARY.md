@@ -17,6 +17,8 @@
     * [프로토콜 (Protocol)](Chapter-3/protocols.md)
     * [익스텐션 (Extension)](Chapter-3/extensions.md)
 * [할 일 목록 관리 앱 Todobox 만들기 (1)](Chapter-4/README.md)
+  * [새 프로젝트 시작하기](Chapter-4/new-project.md)
+  * [테이블 뷰 다루기](Chapter-4/tableview.md)
 * 테이블 뷰 사용해보기
 * 이미지와 문자열 리소스 관리하기
 * 오토 레이아웃 다루기
