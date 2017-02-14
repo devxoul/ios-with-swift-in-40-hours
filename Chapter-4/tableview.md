@@ -71,3 +71,85 @@ class ViewController: UIViewController {
 `@IBOutlet`을 붙이면 해당 라인의 바로 왼쪽에 아래 이미지와 같이 동그란 모양이 생기는 것을 확인할 수 있습니다.
 
 ![iboutlet-dot](../images/Chapter-4/iboutlet-dot.png)
+
+이 표시는 속성이 인터페이스 빌더와 연결되어 있는지를 나타냅니다. 만약 인터페이스 빌더에서 이 속성과 어떤 컴포넌트를 연결했다면 빈 동그라미 대신 속이 찬 동그라미가 나타납니다. 그럼 이제 동그라미를 채워봅시다.
+
+**`Main.storyboard`** 파일을 인터페이스 빌더로 연 뒤, 아래 사진과 같이 따라해봅시다.
+
+1. 테이블 뷰를 선택합니다.
+2. 오른쪽 상단에서 Connections 설정을 선택합니다.
+3. 'New Referencing Outlet' 항목의 오른쪽에 있는 동그라미부터 드래그를 시작합니다.
+4. 인터페이스 빌더 왼쪽의 'View Controller' 항목까지 드래그한 뒤 놓습니다.
+
+![tableview-referencing-outlet](../images/Chapter-4/tableview-referencing-outlet.png)
+
+그럼 아래와 같이 'tableView'와 'view'를 선택할 수 있는 메뉴가 보여집니다. 각 항목은 `ViewController` 클래스에 `@IBOutlet`으로 선언된 속성들입니다. 우리는 'tableView'를 선택해서, 스토리보드의 테이블 뷰를 `ViewController`의 `tableView` 속성에 연결합니다.
+
+![viewcontroller-referencing-outlet-tableview](../images/Chapter-4/viewcontroller-referencing-outlet-tableview.png)
+
+다시 **`ViewController.swift`** 파일로 돌아가보면, 아까 보았던 동그라미가 채워져있는 것을 확인할 수 있습니다.
+
+![iboutlet-dot-filled](../images/Chapter-4/iboutlet-dot-filled.png)
+
+방금 우리는 스토리보드에서 추가한 테이블 뷰를 Swift 코드와 연결했습니다. 이제 코드로 연결한 테이블 뷰를 한 번 다뤄볼까요? 우선 `ViewController`에 `viewDidLoad()` 메서드를 만들어봅시다. 모든 뷰 컨트롤러들은 `view`라는 속성을 가지고 있습니다. `viewDidLoad()`는 `view`를 사용할 준비가 끝날 때 호출되기 때문에, `view`와 관련되거나 눈에 보이는 요소를 초기화 할 때에는 주로 이 곳에서 하곤 합니다.
+
+우리는 우선 몸풀기로 `tableView`의 배경색을 바꿔주는 코드를 작성해봅시다. 아래와 같이 `backgroundColor` 속성을 `UIColor.red`으로 설정해볼까요?
+
+```swift
+class ViewController: UIViewController {
+  var tableView: UITableView!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.tableView.backgroundColor = UIColor.red
+  }
+}
+```
+
+테이블 뷰의 배경색이 잘 표시되나요? 잘 되는 것을 확인했으면 눈이 아프니 다시 원래대로 돌립시다. 그냥 몸풀기였으니까요.
+
+### 테이블 뷰에 데이터 보여주기
+
+이제 테이블 뷰에 데이터를 넣어볼 차례입니다. 테이블 뷰에 데이터를 넣기 위해서는 테이블 뷰가 어떻게 데이터를 받아오는지를 알아야 하는데요. 사실 몰라도 됩니다. 처음부터 모든것을 알려고 하면 머리가 아프고 코딩이 재미없어집니다. 잘 모르더라도 빨리 뭔가를 만들어보는게 더 중요합니다.
+
+우리는 `ViewController` 클래스에 `UITableViewDataSource`라는 이름을 가진 프로토콜을 적용할 거예요. 이 프로토콜은 필수적으로 구현해야 하는 두 개의 메서드와, 선택적으로 구현이 가능한 여러가지 메서드를 정의하고 있습니다. 데이터를 보여주기 위해 필요한 두 개의 메서드는 다음과 같습니다:
+
+```swift
+// n번째 섹션에 몇 개의 row가 존재하는지를 반환합니다.
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+
+// n번째 섹션의 m번째 row를 그리는데 필요한 셀을 반환합니다.
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+```
+
+이름이 되게 길죠? 그런데 앞으로 만날 대부분의 메서드들은 이름이 다 이렇게 깁니다. 이 두 개는 짧은 편에 속해요. 그러니 평소에 코딩을 많이 해서 타자 연습을 해야 합니다.
+
+우선 첫 번째 메서드부터 구현을 해봅시다. 첫 번째 메서드는 특정 섹션에 몇 개의 row가 존재하는지를 반환하는 메서드입니다. 테이블 뷰는 섹션과 row로 구성되어 있어요. 테이블 뷰는 한 줄에 row 하나가 보여지고, row를 묶는 단위로 섹션을 사용합니다. 기본적으로는 하나의 섹션이 제공됩니다. 우리는 하나의 섹션만 사용할 것이기 때문에 `section` 파라미터를 비교해서 몇 번째 섹션인지를 체크하지 않습니다. 우선 무식하게 100개의 row가 있다고 한 번 써볼게요.
+
+```swift
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) {
+  return 100
+}
+```
+
+> **Note**: 여러 개의 섹션을 사용하려면, 아래 메서드를 구현하면 됩니다. 구현하지 않는 경우 기본값으로 `1`을 사용합니다.
+>
+> ```swift
+> func numberOfSections(in tableView: UITableView) -> Int
+> ```
+
+그리고 하나의 메서드를 더 구현해야 컴파일이 가능해집니다. 이 메서드는 특정 row를 그리기 위해 필요한 셀을 반환합니다. 테이블 뷰에서 어떤 셀이 화면에 보이기 직전에 이 메서드가 호출됩니다. 만약 화면에 총 10개의 셀이 보인다면 이 메서드가 10번 호출되고, 테이블 뷰를 스크롤하여 새로운 셀이 보여질 경우 새로운 셀을 그리기 직전에 호출됩니다.
+
+파라미터로 전달되는 `IndexPath`는 테이블 뷰에서 셀의 위치를 나타내기 위해 사용되는 일종의 인덱스인데요. `section`과 `row` 속성을 정의하고 있습니다. `IndexPath`의 `section`이 `0`이고 `row`가 `0`이라면 가장 위에 보이는 셀의 위치를 의미합니다. 우리는 바로 위에서 테이블 뷰에 총 100개의 row가 있다고 했으니, `indexPath.row`는 0부터 99까지가 될 수 있습니다.
+
+```swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
+  let cell = UITableViewCell()
+  cell.textField?.text = "\(indexPath.row)"
+  return cell
+}
+```
+
+`UITableViewCell`은 테이블 뷰 셀을 의미합니다. 만약 커스텀 셀을 만들고 싶다면 이 클래스를 상속받아서 만들게 됩니다. `UITableViewCell`에는 기본적으로 `textField`라는 속성이 정의되어 있는데요. 이 값은 옵셔널로 정의되어 있습니다. 그렇기 때문에 우리는 옵셔널 체이닝을 사용해서 안전하게 값을 대입했습니다.
+
+여기까지 한 뒤, 빌드하여 시뮬레이터에 올려봅시다. 아무것도 안나오죠? 사실 여기서 한 가지를 더 해야 합니다.
