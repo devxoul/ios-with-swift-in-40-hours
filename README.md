@@ -4,8 +4,10 @@
 [![Gratipay](https://img.shields.io/gratipay/devxoul.svg?style=social&label=Donate&maxAge=2592000)](https://gratipay.com/~devxoul/)
 [![GitHub stars](https://img.shields.io/github/stars/devxoul/ios-with-swift-in-40-hours.svg?style=social&label=Star)](https://github.com/devxoul/ios-with-swift-in-40-hours)
 
-선린인터넷고등학교 2015-2016년 겨울방학 소수전공 특강을 위한 교재입니다. 40시간만에 Swift를 가지고 iOS 앱을 만들어봅시다. 본 교재는 Swift 3 버전을 다룹니다.
+40시간만에 Swift를 가지고 iOS 앱을 만들어봅시다. 본 교재는 Swift 3 버전을 다룹니다. 본 교재는 아래 강의에서 사용되었습니다.
 
-⚠️ Swift에 관련된 내용까지만 집필을 마친 상태입니다. 이후 앱을 만드는 과정은 실습 위주로 진행되어 내용을 작성하지 않았습니다. 추후 관련 내용으로 강의를 하게 되거나, 혹은 다른 이유로 집필할 필요를 느끼게 되면 재집필할 계획입니다. 예제로 작성된 Todobox 앱은 [GitHub](https://github.com/devxoul/Todobox)에 오픈소스로 공개되어 있습니다.
+* 2015년 선린인터넷고등학교 겨울방학 소수전공 특강
+* 2016년 선린인터넷고등학교 겨울방학 소수전공 특강
+* 2017년 패스트캠퍼스 iOS 앱 개발 캠프 1기
 
-교재의 내용과 관련해서 문의하실 사항이 있다면 [본 교재의 GitHub 저장소](https://github.com/devxoul/ios-with-swift-in-40-hours)에 이슈를 만들어 주시거나, 제 개인 메일([devxoul@gmail.com](mailto:devxoul@gmail.com))로 문의주시기 바랍니다.
+Swift에 관련된 내용까지만 집필되어 있습니다. 이후의 내용을 원하시는 분들께서는 [오프라인 강의](preview.html) 페이지를 참고해주세요. 교재의 내용과 관련해서 문의하실 사항이 있다면 [본 교재의 GitHub 저장소](https://github.com/devxoul/ios-with-swift-in-40-hours)에 이슈를 만들어 주시면 감사하겠습니다.
