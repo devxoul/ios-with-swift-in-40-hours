@@ -8,4 +8,4 @@
 
 * [Todobox](https://github.com/devxoul/Todobox): 할 일 목록 관리 애플리케이션
 * [Meal](https://github.com/devxoul/Meal): 전국 초/중/고 급식 조회 애플리케이션
-* Graygram: 흑백사진 전용 소셜 미디어 서비스
+* [Graygram](https://github.com/devxoul/graygram-ios): 흑백사진 전용 소셜 미디어 서비스
