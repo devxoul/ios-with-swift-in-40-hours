@@ -8,6 +8,7 @@
 
 * 2015년 선린인터넷고등학교 겨울방학 소수전공 특강
 * 2016년 선린인터넷고등학교 겨울방학 소수전공 특강
-* 2017년 패스트캠퍼스 iOS 앱 개발 캠프 1기
+* [2017년 패스트캠퍼스 iOS 앱 개발 프로젝트 캠프 1기](https://devxoul.github.io/lecture/2017/fastcampus-ios-1/)
+* [2017년 패스트캠퍼스 iOS 앱 개발 프로젝트 캠프 2기](https://devxoul.github.io/lecture/2017/fastcampus-ios-2/)
 
 Swift에 관련된 내용까지만 집필되어 있습니다. 이후의 내용을 원하시는 분들께서는 [오프라인 강의](preview.html) 페이지를 참고해주세요. 교재의 내용과 관련해서 문의하실 사항이 있다면 [본 교재의 GitHub 저장소](https://github.com/devxoul/ios-with-swift-in-40-hours)에 이슈를 만들어 주시면 감사하겠습니다.
