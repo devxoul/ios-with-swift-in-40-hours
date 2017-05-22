@@ -183,7 +183,7 @@ let converter: DollarConverter = 100
 converter.dollars // 117700
 ```
 
-> **Tip**: `typealias`는 C의 `typedef`와 같습니다. `typedef MyInt = Int`라고 하면, 새로 생성된 `MyInt`는 `Int`와 완전히 동일한 타입입니다. 프로토콜에서도 `typealias`를 정의할 수 있습니다.
+> **Tip**: `typealias`는 C의 `typedef`와 같습니다. `typealias MyInt = Int`라고 하면, 새로 생성된 `MyInt`는 `Int`와 완전히 동일한 타입입니다. 프로토콜에서도 `typealias`를 정의할 수 있습니다.
 
 > **Tip**: `1177`은 가독성을 위해 `1_177`로 쓸 수 있습니다. `12_345`는 `12345`랑 같아요. `1234_5`도 `12345`와 같습니다.
 
